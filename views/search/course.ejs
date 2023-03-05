@@ -1,0 +1,354 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <title>Course Management System</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CMS" />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--// Meta tag Keywords -->
+
+    <!-- css files -->
+    <link rel="stylesheet" href="/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="/css/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+
+    <!--web font-->
+    <link href="//fonts.googleapis.com/css?family=PT+Sans+Caption:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+    <!--//web font-->
+
+</head>
+
+<body>
+
+
+<!-- header -->
+<header>
+    <div class="container">
+        <!-- top header -->
+        <section class="row top_header pt-3">
+            <div class="col-lg-6">
+            </div>
+            <div class="col-lg-6 buttons">
+                
+                <a href="/users/login"><button type="button" class="btn btn-info btn-lg-block w3ls-btn px-4 text-capitalize mr-2" data-toggle="modal"
+                                               aria-pressed="false" data-target="">Login</button></a>
+
+                <a href="/users/register/"><button type="button" class="btn btn-info btn-lg-block w3ls-btn px-4 text-capitalize mr-2" data-toggle="modal"
+                                                   aria-pressed="false" data-target="">Register</button></a>
+            </div>
+        </section>
+        <!-- top header -->
+
+        <!-- nav -->
+        <nav class="navbar navbar-expand-lg navbar-light py-sm-4 py-2">
+            <!-- logo -->
+            <h1>
+                <a class="navbar-brand" href="/"> <i class="fab fa-affiliatetheme"></i>
+                    Course Management System
+                </a>
+            </h1>
+            <!-- //logo -->
+            <button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- main nav -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto text-center">
+                    <li class="nav-item mr-lg-3">
+                        <a class="nav-link" href="/">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-lg-3">
+                        <a class="nav-link" href="/about">about</a>
+                    </li>
+              
+                    <li>
+                        <!-- search --->
+                        <div class="search-bar-agileits">
+                            <div class="cd-main-header">
+                                <ul class="cd-header-buttons">
+                                    <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+                                </ul>
+                                <!-- cd-header-buttons -->
+                            </div>
+                            <div id="cd-search" class="cd-search">
+                                <form action="/search" method="post">
+                                    <input name="Search" type="search" placeholder="Search for courses...">
+                                </form>
+                            </div>
+                        </div>
+                        <!-- search --->
+
+                    </li>
+                </ul>
+            </div>
+            <!-- //main nav -->
+        </nav>
+        <!-- //nav -->
+    </div>
+</header>
+<!-- //header -->
+
+<!-- inner banner -->
+<div class="inner_banner layer" id="home">
+    <div class="container">
+        <div class="agileinfo-inner">
+            <h2 class="text-center text-white">
+                Course Page
+            </h2>
+        </div>
+    </div>
+</div>
+<!-- //inner banner -->
+<!-- breadcrumbs -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Search</li>
+    </ol>
+</nav>
+<!-- //breadcrumbs -->
+
+<!-- courses -->
+<section class="courses py-5">
+
+
+
+
+
+
+
+    <!-- single page -->
+    <div class="single-page py-5">
+        <div class="container py-xl-5 py-lg-3">
+            <h2 class="tittle mb-xl-5 mb-4 text-dark text-uppercase font-weight-bold pl-4 py-3">  <%= course.Course_Title%></h2>
+            <div class="inner-sec">
+                <div class="row">
+                    <!-- left side -->
+                    <div class="col-lg-8 left-blog-info text-left">
+                        <div class="blog-grid-top">
+                            <div class="b-grid-top">
+                                <div class="blog_info_left_grid">
+                                    <a href="single.html">
+                                        <img src="/images/4.jpg" class="img-fluid" alt="">
+                                    </a>
+
+                                    <div class="card">
+
+                                        <div class="card-header">
+                                            <h3>
+                                                <a class="single-text text-dark font-weight-light">Introduction To Course</a>
+                                            </h3>
+                                        </div>
+                                        <div class="card-body">
+                                            <p id="introduction" style="white-space: pre-wrap;">  <%= course.Introduction%></p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="card">
+
+                                        <div class="card-header">
+                                            <h3>
+                                                <a class="single-text text-dark font-weight-light">Description of Course</a>                              </h3>
+
+
+
+
+                                        </div>
+                                        <div class="card-body">
+                                            <p id="description" style="white-space: pre-wrap;">  <%= course.Description%> </p>
+                                        </div>
+                                    </div>
+                                    <br>
+                                    <div class="card">
+
+                                        <div class="card-header">
+                                            <h3>
+                                                <a class="single-text text-dark font-weight-light">Requirements of the Course</a>
+                                            </h3>
+
+
+                                        </div>
+                                        <div class="card-body">
+                                            <p id="requirements" style="white-space: pre-wrap;"> <%= course.Requirements%></p>
+                                        </div>
+                                    </div>
+
+
+
+
+
+
+
+
+                                    </div>
+
+
+                    </div>
+                    <!-- //left side -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</section>
+<!-- courses -->
+
+
+<!-- Login modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="exampleModalLabel1">Login</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post" class="p-3">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">User Name</label>
+                        <input type="email" class="form-control" placeholder="User Name" name="Name" id="recipient-name" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name1" class="col-form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Password" name="Name" id="recipient-name1" required="">
+                    </div>
+                    <div class="right-w3l mt-4 mb-3">
+                        <input type="submit" class="form-control" value="Login">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Login modal -->
+
+<!-- Register modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="exampleModalLabel1">Register Here</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="#" method="post" class="p-3">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" name="Name" id="recipient-name2" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" name="Name" id="recipient-name3" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Email id</label>
+                        <input type="email" class="form-control" placeholder="Email id" name="Name" id="recipient-name4" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Mobile Number</label>
+                        <input type="text" class="form-control" placeholder="Mobile Number" name="Name" id="recipient-name5" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name1" class="col-form-label">Password</label>
+                        <input type="password" class="form-control" placeholder="Password" name="Name" id="recipient-name6" required="">
+                    </div>
+                    <div class="right-w3l mt-4 mb-3">
+                        <input type="submit" class="form-control" value="Create account">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Register modal -->
+
+
+<!-- js -->
+<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+<!-- //js -->
+
+<!-- search-bar -->
+<script src="js/main.js"></script>
+<!-- //search-bar -->
+
+<!-- Countdown-Timer-JavaScript -->
+<script src="js/simplyCountdown.js"></script>
+<!-- easy to customize -->
+<script>
+    $('#simply-countdown-losange').simplyCountdown({
+        year: 2020,
+        month: 1,
+        day: 06
+    });
+</script>
+<!-- //Countdown-Timer-JavaScript -->
+
+<!-- start-smoth-scrolling -->
+<script src="js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="js/move-top.js"></script>
+<script type="text/javascript" src="js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<!-- start-smoth-scrolling -->
+
+</body>
+</html>

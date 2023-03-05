@@ -1,0 +1,220 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Course Management System</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CMS" />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--// Meta tag Keywords -->
+
+    <!-- css files -->
+    <link rel="stylesheet" href="/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="/css/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+
+    <!--web font-->
+    <link href="//fonts.googleapis.com/css?family=PT+Sans+Caption:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+    <!--//web font-->
+
+</head>
+
+<body>
+
+
+<!-- header -->
+<header>
+    <div class="container">
+
+        <!-- nav -->
+        <nav class="navbar navbar-expand-lg navbar-light py-sm-4 py-2">
+            <!-- logo -->
+            <h1>
+                <a class="navbar-brand" href="/student/"> <i class="fab fa-affiliatetheme"></i>
+                    Course Management System
+                </a>
+            </h1>
+            <!-- //logo -->
+            <button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- main nav -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto text-center">
+                    <li class="nav-item mr-lg-3">
+                        <a class="nav-link" href="/student/">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-lg-3">
+                        <a class="nav-link" href="/student/courses/">My Courses</a>
+                    </li>
+                    <li class="dropdown nav-item active mr-lg-3">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle ">
+                            Account
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="nav-item">
+                                <a href="/student/profile" class="nav-link">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/users/logout" class="nav-link">Logout</a>
+                            </li>
+                        </ul>
+                    <li>
+                        <!-- search --->
+                        <div class="search-bar-agileits">
+                            <div class="cd-main-header">
+                                <ul class="cd-header-buttons">
+                                    <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+                                </ul>
+                                <!-- cd-header-buttons -->
+                            </div>
+                            <div id="cd-search" class="cd-search">
+                                <form action="/student/search" method="post">
+                                    <input name="search" type="search" placeholder="search for courses....">
+                                </form>
+                            </div>
+                        </div>
+                        <!-- search --->
+
+                    </li>
+                </ul>
+            </div>
+            <!-- //main nav -->
+        </nav>
+        <!-- //nav -->
+    </div>
+</header>
+<!-- //header -->
+
+<!-- inner banner -->
+<div class="inner_banner layer" id="home">
+    <div class="container">
+        <div class="agileinfo-inner">
+            <h2 class="text-center text-white">
+
+            </h2>
+        </div>
+    </div>
+</div>
+<!-- //inner banner -->
+<!-- breadcrumbs -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/student/">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Courses</li>
+    </ol>
+</nav>
+<!-- //breadcrumbs -->
+
+<!-- courses -->
+<section class="courses py-5">
+    <div class="container py-sm-3">
+        <h3 class="heading text-capitalize mb-lg-5 mb-4">  courses</span> </h3>
+
+
+
+        <div class="row course-grids">
+            <% if (courses) { %>
+                <% for (var i=0;i<courses.length ;i ++) {%>
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title"><%= courses[i].Course_Title%> (<%= courses[i].Course_Code%>)</h5>
+
+                                <h6 class="card-title"> Instructor : <a href="# "><%= courses[i].First_Name%> <%= courses[i].Middle_Name%> <%= courses[i].Last_Name%></a></h6>
+
+                                <p class="card-text mb-3"><%=courses[i].Introduction%></p>
+                                <a href="/student/search/course/<%= courses[i].Course_id%>" class="btn btn-primary"><i class="fas fa-graduation-cap"></i> View Course</a>
+                            </div>
+                        </div>
+                    </div>
+
+
+                <% }%>
+
+            <% }  %>
+            <%  if (courses.length== 0){ %>
+                Sorry No Courses Were Found<br>
+                <br>
+            <% } %>
+
+        </div>
+    </div>
+</section>
+<!-- courses -->
+
+
+
+
+<!-- js -->
+<script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+<!-- //js -->
+
+<!-- search-bar -->
+<script src="/js/main.js"></script>
+<!-- //search-bar -->
+
+<!-- Countdown-Timer-JavaScript -->
+<script src="/js/simplyCountdown.js"></script>
+<!-- easy to customize -->
+<script>
+    $('#simply-countdown-losange').simplyCountdown({
+        year: 2020,
+        month: 1,
+        day: 06
+    });
+</script>
+<!-- //Countdown-Timer-JavaScript -->
+
+<!-- start-smoth-scrolling -->
+<script src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/move-top.js"></script>
+<script type="text/javascript" src="/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<!-- start-smoth-scrolling -->
+
+</body>
+</html>

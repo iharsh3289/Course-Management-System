@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Course Management System</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CMS" />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--// Meta tag Keywords -->
+
+    <!-- css files -->
+    <link rel="stylesheet" href="/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link href="/css/single.css" rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="/css/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+
+    <!--web font-->
+    <link href="//fonts.googleapis.com/css?family=PT+Sans+Caption:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.4.1/css/all.css" integrity="sha384-5sAR7xN1Nv6T6+dT2mhtzEpVJvfS3NScPQTrOxhwjIuvcA67KV2R5Jz6kr4abQsz" crossorigin="anonymous">
+    <!--//web font-->
+
+    <style>
+        #paper {
+            color:#FFF;
+            font-size:20px;
+        }
+        #margin {
+            margin-left:12px;
+            margin-bottom:20px;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            -o-user-select: none;
+            user-select: none;
+        }
+        #text {
+            width:100%;
+            overflow:hidden;
+            background-color:#FFF;
+            color:#222;
+            font-family:Courier, monospace;
+            font-weight:normal;
+            font-size:24px;
+            resize:none;
+            line-height:40px;
+            padding-left:100px;
+            padding-right:100px;
+            padding-top:45px;
+            padding-bottom:34px;
+            background-image:url(https://static.tumblr.com/maopbtg/E9Bmgtoht/lines.png), url(https://static.tumblr.com/maopbtg/nBUmgtogx/paper.png);
+            background-repeat:repeat-y, repeat;
+            -webkit-border-radius:12px;
+            border-radius:12px;
+            -webkit-box-shadow: 0px 2px 14px #000;
+            box-shadow: 0px 2px 14px #000;
+            border-top:1px solid #FFF;
+            border-bottom:1px solid #FFF;
+            white-space: pre-wrap;
+        }
+        #title {
+            background-color:transparent;
+            border-bottom:3px solid #FFF;
+            color:#FFF;
+            font-size:20px;
+            font-family:Courier, monospace;
+            height:28px;
+            font-weight:bold;
+            width:220px;
+        }
+        #button {
+            cursor:pointer;
+            margin-top:20px;
+            float:right;
+            height:40px;
+            padding-left:24px;
+            padding-right:24px;
+            font-family:Arial, Helvetica, sans-serif;
+            font-weight:bold;
+            font-size:20px;
+            color:#FFF;
+            text-shadow: 0px -1px 0px #000000;
+            -webkit-border-radius:8px;
+            border-radius:8px;
+            border-top:1px solid #FFF;
+            -webkit-box-shadow: 0px 2px 14px #000;
+            box-shadow: 0px 2px 14px #000;
+            background-color: #62add6;
+            background-image:url(https://static.tumblr.com/maopbtg/ZHLmgtok7/button.png);
+            background-repeat:repeat-x;
+        }
+        #button:active {
+            zoom: 1;
+            filter: alpha(opacity=80);
+            opacity: 0.8;
+        }
+        #button:focus {
+            zoom: 1;
+            filter: alpha(opacity=80);
+            opacity: 0.8;
+        }
+        #wrapper {
+            width:700px;
+            height:auto;
+            margin-left:auto;
+            margin-right:auto;
+            margin-top:24px;
+            margin-bottom:100px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+<!-- header -->
+<header>
+    <div class="container">
+
+        <!-- nav -->
+        <nav class="navbar navbar-expand-lg navbar-light py-sm-4 py-2">
+            <!-- logo -->
+            <h1>
+                <a class="navbar-brand" href="/student/"> <i class="fab fa-affiliatetheme"></i>
+                    Course Management System
+                </a>
+            </h1>
+            <!-- //logo -->
+            <button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- main nav -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto text-center">
+                    <li class="nav-item mr-lg-3">
+                        <a class="nav-link" href="/student/">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-lg-3">
+                        <a class="nav-link" href="/student/courses/">Courses</a>
+                    </li>
+                    <li class="dropdown nav-item active mr-lg-3">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle ">
+                            Account
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="nav-item">
+                                <a href="/student/profile" class="nav-link">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/users/logout" class="nav-link">Logout</a>
+                            </li>
+                        </ul>
+                    <li>
+                        <!-- search --->
+                        <div class="search-bar-agileits">
+                            <div class="cd-main-header">
+                                <ul class="cd-header-buttons">
+                                    <li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+                                </ul>
+                                <!-- cd-header-buttons -->
+                            </div>
+                            <div id="cd-search" class="cd-search">
+                                <form action="#" method="post">
+                                    <input name="Search" type="search" placeholder="Click enter after typing...">
+                                </form>
+                            </div>
+                        </div>
+                        <!-- search --->
+
+                    </li>
+                </ul>
+            </div>
+            <!-- //main nav -->
+        </nav>
+        <!-- //nav -->
+    </div>
+</header>
+<!-- //header -->
+
+<!-- inner banner -->
+<div class="inner_banner layer" id="home">
+    <div class="container">
+        <div class="agileinfo-inner">
+            <h2 class="text-center text-white">
+                Course Name
+            </h2>
+        </div>
+    </div>
+</div>
+<!-- //inner banner -->
+<!-- breadcrumbs -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/student/">Home</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/student/courses/">Courses</a>
+        </li>
+        <li class="breadcrumb-item">
+            <a href="/student/course-details/<%= course.Course_id%>"><%= course.Course_Title%></a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Resources</li>
+    </ol>
+</nav>
+<!-- //breadcrumbs -->
+
+<!-- courses -->
+<section class="courses py-5">
+
+
+
+
+
+    <!-- single page -->
+    <div class="single-page py-5">
+        <div class="container py-xl-5 py-lg-3">
+            <div class="inner-sec">
+                <div class="row">
+                    <!-- left side -->
+                    <div class="col-lg-8 left-blog-info text-left">
+                        <div class="blog-grid-top">
+
+                            <h2 class="tittle mb-xl-5 mb-4 text-dark text-uppercase font-weight-bold pl-4 py-3">Course Resource Section</h2>
+
+                            <div class="category-story tech-btm"">
+                                <ul class="list-group single" >
+                                    <% if (resources) { %>
+                                        <% for (var i=0;i<resources.length ;i ++) {%>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center" >
+                                                <a href="/student/course/<%= course.Course_id%>/resources/<%= resources[i].Material_id%>"><%= resources[i].Name%></a><br><br><br>
+                                            </li>
+                                        <% }%>
+                                    <% } %>
+
+                                </ul>
+                            </div>
+
+
+
+
+                        </div>
+
+
+                    </div>
+                    <!-- //left side -->
+                    <!-- right side -->
+                            <div class="category-story tech-btm">
+                                <h4>Course Materials</h4>
+                                <ul class="list-group single">
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="/student/course/<%= course.Course_id%>/resources">Resources Section</a>
+                                        <span class="badge badge-primary badge-pill">14</span>
+                           
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="/student/course/<%= course.Course_id%>/students">Students</a>
+                                    </li>
+                                    </li>
+                                    <li class="list-group-item d-flex justify-content-between align-items-center">
+                                        <a href="/student/course/<%= course.Course_id%>/qa">Q&A</a>
+                                        <span class="badge badge-primary badge-pill">1</span>
+                                    </li>
+                                </ul>
+                            </div>
+
+
+
+                        </div>
+                    </aside>
+                    <!-- //right side -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+</section>
+<!-- courses -->
+<!-- Register modal -->
+<div class="modal fade" id="exampleModal1" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+         
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Link 1</label>
+                        <input type="" class="form-control" placeholder="Link 1" name="link1" id="recipient-name4" required="">
+                    </div>
+                    <!--   <div class="form-group">
+                         <label for="recipient-name" class="col-form-label">Mobile Number</label>
+                         <input type="text" class="form-control" placeholder="Mobile Number" name="Name" id="recipient-name5" required="">
+                       </div>
+                     -->
+                    <div class="form-group">
+                        <label for="recipient-name1" class="col-form-label">Link 2</label>
+                        <input type="" class="form-control" placeholder="Link 2" name="link2" id="recipient-name6" required="">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name1" class="col-form-label">Link 3</label>
+                        <input type="" class="form-control" placeholder="Link 3" name="link3" id="recipient-name6" required="">
+                    </div>
+                    <div class="right-w3l mt-4 mb-3">
+                        <input type="submit" class="form-control" value="Create account">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Register modal -->
+
+
+
+
+<!-- Resource modal -->
+<div class="modal fade" id="exampleModal2" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel1" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="exampleModalLabel2">Add A Resource</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="/student/course/<%= course.Course_id%>/resources" method="post" class="p-3" enctype="multipart/form-data">
+
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Resource Name</label>
+                        <input type="text" class="form-control" placeholder="Resource Name" name="resource_name" id="recipient-name4" required="">
+                    </div>
+                    <!--   <div class="form-group">
+                         <label for="recipient-name" class="col-form-label">Mobile Number</label>
+                         <input type="text" class="form-control" placeholder="Mobile Number" name="Name" id="recipient-name5" required="">
+                       </div>
+                     -->
+                    <div class="form-group">
+                        <label for="recipient-name1" class="col-form-label">Link 2</label>
+                        <input type="file" class="form-control" placeholder="Upload File" name="file" id="recipient-name6" required="">
+                    </div>
+                    <div class="right-w3l mt-4 mb-3">
+                        <input type="submit" class="form-control" value="Create account">
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //Register modal -->
+
+
+
+
+
+<!-- js -->
+<script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+<!-- //js -->
+
+<!-- search-bar -->
+<script src="/js/main.js"></script>
+<!-- //search-bar -->
+
+<!-- Countdown-Timer-JavaScript -->
+<script src="/js/simplyCountdown.js"></script>
+<!-- easy to customize -->
+<script>
+    $('#simply-countdown-losange').simplyCountdown({
+        year: 2020,
+        month: 1,
+        day: 06
+    });
+</script>
+<!-- //Countdown-Timer-JavaScript -->
+
+<!-- start-smoth-scrolling -->
+<script src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/move-top.js"></script>
+<script type="text/javascript" src="/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+        $().UItoTop({ easingType: 'easeOutQuart' });
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<!-- start-smoth-scrolling -->
+
+
+<script>
+    $("#formButton").click(function(){
+        $("#introduction_textarea").toggle();
+        $("#introduction").css({
+            'display': 'none'
+        });
+    });
+    $("#formButton2").click(function(){
+        $("#description_textarea").toggle();
+        $("#description").css({
+            'display': 'none'
+        });
+    });
+    $("#formButton3").click(function(){
+        $("#requirements_textarea").toggle();
+        $("#requirements").css({
+            'display': 'none'
+        });
+    });
+</script>
+
+</body>
+</html>

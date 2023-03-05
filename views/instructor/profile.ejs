@@ -1,0 +1,254 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Course Management System</title>
+
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="keywords" content="CMS" />
+    <script type="application/x-javascript">
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!--// Meta tag Keywords -->
+
+    <!-- css files -->
+    <link rel="stylesheet" href="/css/bootstrap.css"> <!-- Bootstrap-Core-CSS -->
+    <link rel="stylesheet" href="/css/style.css" type="text/css" media="all" /> <!-- Style-CSS -->
+    <link rel="stylesheet" href="/css/fontawesome-all.css"> <!-- Font-Awesome-Icons-CSS -->
+    <!-- //css files -->
+
+    <!--web font-->
+    <link href="//fonts.googleapis.com/css?family=PT+Sans+Caption:400,700&amp;subset=cyrillic,cyrillic-ext,latin-ext" rel="stylesheet">
+    <!--//web font-->
+
+</head>
+
+<body>
+
+
+<!-- header -->
+<header>
+    <div class="container">
+
+        <!-- nav -->
+        <nav class="navbar navbar-expand-lg navbar-light py-sm-4 py-2">
+            <!-- logo -->
+            <h1>
+                <a class="navbar-brand" href="/instructor/"> <i class="fab fa-affiliatetheme"></i>
+                    Course Management System
+                </a>
+            </h1>
+            <!-- //logo -->
+            <button class="navbar-toggler ml-md-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <!-- main nav -->
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav ml-lg-auto text-center">
+                    <li class="nav-item mr-lg-3">
+                        <a class="nav-link" href="/instructor/">Home
+                            <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item mr-lg-3">
+                        <a class="nav-link" href="/instructor/courses">Courses</a>
+                    </li>
+                    <li class="dropdown nav-item active mr-lg-3">
+                        <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle ">
+                            Account
+                            <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu" role="menu">
+                            <li class="nav-item">
+                                <a href="/instructor/profile/" class="nav-link">Profile</a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/users/logout" class="nav-link">Logout</a>
+                            </li>
+                        </ul>
+
+                </ul>
+            </div>
+            <!-- //main nav -->
+        </nav>
+        <!-- //nav -->
+    </div>
+</header>
+<!-- //header -->
+
+<!-- inner banner -->
+<div class="inner_banner layer" id="home">
+    <div class="container">
+        <div class="agileinfo-inner">
+            <h2 class="text-center text-white">
+                Welcome  <%= instructor.First_Name%> <%= instructor.Last_Name%>
+            </h2>
+        </div>
+    </div>
+</div>
+<!-- //inner banner -->
+<!-- breadcrumbs -->
+<nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+            <a href="/instructor/">Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Profile</li>
+    </ol>
+</nav>
+<!-- //breadcrumbs -->
+
+<% if (messages) { %>
+<%if(messages[0]){%>
+    <div class="alert alert-success">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        <i class="fa sign"></i><strong></strong>
+        <span><%= messages[0]%></span>
+    </div>
+<%}%>
+<% } %>
+
+
+<!-- courses -->
+<section class="courses py-5">
+
+
+
+
+    <!-- Login modal -->
+
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title text-uppercase" id="exampleModalLabel1">My Profile</h5>
+            </div>
+            <div class="modal-body">
+                <form action="/instructor/profile/" method="post" class="p-3">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">First Name</label>
+                        <input type="text" class="form-control" placeholder="First Name" name="fname" id="recipient-name2" value="<%= instructor.First_Name%>">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Middle Name</label>
+                        <input type="text" class="form-control" placeholder="Middle Name" name="mname" id="recipient-name2" value="<%= instructor.Middle_Name%>">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Last Name</label>
+                        <input type="text" class="form-control" placeholder="Last Name" name="lname" id="recipient-name3" value="<%= instructor.Last_Name%>">
+                    </div>
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">PhoneNumber</label>
+                        <input type="text" class="form-control" placeholder="Phone Number" name="phone" id="recipient-name2" value="<%= instructor.Phone_Number%>" maxlength="10">
+                    </div>
+
+                    <div class="right-w3l mt-4 mb-3">
+                        <input type="submit" class="form-control" value="Update Profile">
+                    </div>
+                </form>
+
+            </div>
+    </div>
+
+    <!-- //Login modal -->
+
+
+
+
+
+
+
+    <!--<h1>profile</h1>-->
+
+    <!--<br>-->
+
+    <!--<li><%= user.Instructor_id  %></li>-->
+    <!--<li><%= user.First_Name  %></li>-->
+    <!--<li><%= user.Last_Name  %></li>-->
+    <!--<li><%= user.Middle_Name  %></li>-->
+    <!--<li><%= user.Email  %></li>-->
+    <!--<li><%= user.Phone_Number  %></li>-->
+
+    <!--<li><%= user. Department_id  %></li>-->
+
+
+
+
+
+
+
+
+    <!--<a href="./">home</a>-->
+
+
+
+
+
+
+
+
+</section>
+<!-- courses -->
+
+<!-- js -->
+<script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+<script type="text/javascript" src="/js/bootstrap.js"></script> <!-- Necessary-JavaScript-File-For-Bootstrap -->
+<!-- //js -->
+
+<!-- search-bar -->
+<script src="/js/main.js"></script>
+<!-- //search-bar -->
+
+<!-- Countdown-Timer-JavaScript -->
+<script src="/js/simplyCountdown.js"></script>
+<!-- easy to customize -->
+<script>
+    $('#simply-countdown-losange').simplyCountdown({
+        year: 2020,
+        month: 1,
+        day: 06
+    });
+</script>
+<!-- //Countdown-Timer-JavaScript -->
+
+<!-- start-smoth-scrolling -->
+<script src="/js/SmoothScroll.min.js"></script>
+<script type="text/javascript" src="/js/move-top.js"></script>
+<script type="text/javascript" src="/js/easing.js"></script>
+<script type="text/javascript">
+    jQuery(document).ready(function($) {
+        $(".scroll").click(function(event){
+            event.preventDefault();
+            $('html,body').animate({scrollTop:$(this.hash).offset().top},1000);
+        });
+    });
+</script>
+<!-- here stars scrolling icon -->
+<script type="text/javascript">
+    $(document).ready(function() {
+        /*
+            var defaults = {
+            containerID: 'toTop', // fading element id
+            containerHoverID: 'toTopHover', // fading element hover id
+            scrollSpeed: 1200,
+            easingType: 'linear'
+            };
+        */
+
+        $().UItoTop({ easingType: 'easeOutQuart' });
+
+    });
+</script>
+<!-- //here ends scrolling icon -->
+<!-- start-smoth-scrolling -->
+
+</body>
+</html>
